@@ -4,11 +4,11 @@
 #include <cstdlib>
 #include <iostream>
 
+#define assert(expr, msg, ...)\
+	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg) __VA_OPT__(,) __VA_ARGS__ )
 
 namespace aisp
 {
-	#define assert(expr, msg, ...)\
-	assert_impl(__FILE__, __LINE__, (expr), (msg) __VA_OPT__(,) __VA_ARGS__ )
 
 	inline void assert_impl(	const char *file,
 								const int line,
