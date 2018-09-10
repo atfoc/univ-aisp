@@ -2,7 +2,6 @@
 #include <vector>
 #include <iterator>
 #include <type_traits>
-#include "../util.hpp"
 
 void quick_sort(std::vector<int> &v, int b, int e);
 void quick_sort(std::vector<int> &v);
