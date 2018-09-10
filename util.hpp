@@ -4,8 +4,15 @@
 #include <cstdlib>
 #include <iostream>
 
-#define assert(expr, msg, ...)\
-	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg) __VA_OPT__(,) __VA_ARGS__ )
+#define AISP_ASSERT2(expr, msg)\
+	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg))
+#define AISP_ASSERT3(expr, msg, exit_code)\
+	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg), (exit_code))
+
+#define AISP_ASSERT_OVERIDE(_1, _2, _3,NAME, ...) NAME
+#define AISP_ASSERT(...)\
+	AISP_ASSERT_OVERIDE(__VA_ARGS__, AISP_ASSERT3, AISP_ASSERT2, 1, 0)(__VA_ARGS__)
+
 
 namespace aisp
 {
