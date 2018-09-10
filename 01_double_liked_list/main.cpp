@@ -1,10 +1,12 @@
 #include <iostream>
 #include "list.hpp"
+#include "../util.hpp"
 
 
 
 int main()
 {
+
 	aisp::list l;
 
 	for(int i = 0; i < 10; ++i)

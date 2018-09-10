@@ -29,8 +29,9 @@ namespace aisp
 		}
 		else
 		{
-			assert(false, "This shoud not happen something is wrong. First Element is null and last"
-				"is not, or other way around");
+			AISP_ASSERT(false, 
+					"This shoud not happen something is wrong. First Element is null and last"
+					"is not, or other way around");
 		}
 	}
 
@@ -50,8 +51,9 @@ namespace aisp
 		}
 		else
 		{
-			assert(false, "This shoud not happen something is wrong. First Element is null and last"
-				"is not, or other way around");
+			AISP_ASSERT(false,
+					"This shoud not happen something is wrong. First Element is null and last"
+					"is not, or other way around");
 		}
 	}
 
@@ -80,8 +82,9 @@ namespace aisp
 		}
 		else 
 		{
-			assert(false, "This shoud not happen something is wrong. First Element is null and last"
-				"is not, or other way around");
+			AISP_ASSERT(false,
+					"This shoud not happen something is wrong. First Element is null and last"
+					"is not, or other way around");
 		}
 	}
 
@@ -110,8 +113,9 @@ namespace aisp
 		}
 		else 
 		{
-			assert(false, "This shoud not happen something is wrong. First Element is null and last"
-				"is not, or other way around");
+			AISP_ASSERT(false,
+					"This shoud not happen something is wrong. First Element is null and last"
+					"is not, or other way around");
 		}
 		
 	}
@@ -138,7 +142,7 @@ namespace aisp
 		}
 		else
 		{
-			assert(false, "List is empty you can not get front");
+			AISP_ASSERT(false, "List is empty you can not get front");
 			/*This never happens it is just for compiler warining*/
 			return -1;
 		}
@@ -152,7 +156,7 @@ namespace aisp
 		}
 		else
 		{
-			assert(false, "List is empty you an not get back");
+			AISP_ASSERT(false, "List is empty you an not get back");
 			/*This never happens it is just for compiler warining*/
 			return -1;
 		}
