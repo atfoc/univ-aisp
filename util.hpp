@@ -25,8 +25,8 @@ namespace aisp
 	{
 		if(!expr)
 		{
-			std::cerr << "\x1b[31m[" << file << ":" << line << "] ";
-			std::cerr  << msg << "\x1b[0m" << std::endl;
+			std::cerr << "\x1b[32m[" << file << ":" << line << "] ";
+			std::cerr <<"\x1b[31m" << msg << "\x1b[0m" << std::endl;
 			std::exit(exit_code);
 		}
 	}
