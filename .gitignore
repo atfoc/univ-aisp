@@ -1,1 +1,7 @@
 a.out
+*.out
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+univ_aisp.cbp
+.idea
