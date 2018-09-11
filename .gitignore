@@ -5,3 +5,5 @@ CMakeCache.txt
 Makefile
 univ_aisp.cbp
 .idea
+CMakeFiles
+cmake-build-debug
