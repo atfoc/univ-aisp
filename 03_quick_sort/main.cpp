@@ -118,8 +118,8 @@ void quick_sort(Random0 b, Random1 e)
 
 
 /*Faster i think*/
-template<typename Random0, typename Reverce>
-void quick_sort_faster(Random0 b, Reverce e)
+template<typename Random0, typename Random1>
+void quick_sort_faster(Random0 b, Random1 e)
 {
 	static_assert(std::is_same<
 					typename std::iterator_traits<Random0>::iterator_category,
@@ -127,7 +127,7 @@ void quick_sort_faster(Random0 b, Reverce e)
 					"Random0 has to be random access iterator");
 
 	static_assert(std::is_same<
-					typename std::iterator_traits<Reverce>::iterator_category,
+					typename std::iterator_traits<Random1>::iterator_category,
 					typename std::random_access_iterator_tag>::value,
 					"Random1 has to be random access iterator");
 
