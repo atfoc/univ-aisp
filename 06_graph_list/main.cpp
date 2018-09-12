@@ -1,10 +1,10 @@
 #include <iostream>
-#include "graph_list.hpp"
+#include "graph.hpp"
 
 int main()
 {
 
-	aisp::graph_list g(aisp::load_graph_list());
+	aisp::graph g(aisp::load_graph_list());
 
 
 	std::cout << "=================DFS=================" << std::endl;

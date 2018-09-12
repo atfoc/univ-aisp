@@ -1,10 +1,10 @@
 #include <iostream>
-#include "graph_matrix.hpp"
+#include "graph.hpp"
 
 int main()
 {
 
-	aisp::graph_matrix g(aisp::load_graph_matrix());
+	aisp::graph g(aisp::load_graph_matrix());
 
 
 	std::cout << "=================DFS=================" << std::endl;

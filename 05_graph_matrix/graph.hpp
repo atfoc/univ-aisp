@@ -3,17 +3,17 @@
 
 #include <vector>
 #include <ostream>
-#include "../06_graph_list/graph_list.hpp"
+#include "../06_graph_list/graph.hpp"
 
 namespace aisp
 {
-	class graph_matrix
+	class graph
 	{
 		private:
 			std::vector<std::vector<bool>> edge_matrix_;
 
 		public:
-			explicit graph_matrix(int node_number);
+			explicit graph(int node_number);
 
 			void add_branch(int i, int j);
 			int get_branch(int i, int j) const;
@@ -23,11 +23,11 @@ namespace aisp
 
 	};
 
-	std::ostream &operator<<(std::ostream &os, const graph_matrix &g);
+	std::ostream &operator<<(std::ostream &os, const graph &g);
 
-	void dfs(const graph_matrix &g, int start_node);
-	void bfs(const graph_matrix &g, int start_node);
-	graph_matrix load_graph_matrix();
+	void dfs(const graph &g, int start_node);
+	void bfs(const graph &g, int start_node);
+	graph load_graph_matrix();
 
 
 }

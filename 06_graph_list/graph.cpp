@@ -1,15 +1,15 @@
 #include <algorithm>
 #include <queue>
-#include "graph_list.hpp"
+#include "graph.hpp"
 #include "../util.hpp"
 
 namespace  aisp
 {
-	graph_list::graph_list(int node_number)
+	graph::graph(int node_number)
 		:	edges_(node_number)
 	{}
 
-	void graph_list::add_branch(int i, int j)
+	void graph::add_branch(int i, int j)
 	{
 		AISP_ASSERT(i >= 0 && i < number_of_nodes(), "Node is not in range");
 		AISP_ASSERT(j >= 0 && j < number_of_nodes(), "Node is not in range");
@@ -18,18 +18,18 @@ namespace  aisp
 	}
 
 
-	int graph_list::number_of_nodes() const
+	int graph::number_of_nodes() const
 	{
 		return edges_.size();
 	}
 
-	const std::list<int> &graph_list::get_neighbours(int i) const
+	const std::list<int> &graph::get_neighbours(int i) const
 	{
 		AISP_ASSERT(i >= 0 && i < number_of_nodes(), "Node is not in range");
 		return edges_[i];
 	}
 
-	void dfs(const graph_list &g, int node, std::vector<bool> &marked)
+	void dfs(const graph &g, int node, std::vector<bool> &marked)
 	{
 		marked[node] = true;
 
@@ -46,14 +46,14 @@ namespace  aisp
 		std::cout << "Odlazna numeracija " << node << std::endl;
 	}
 
-	void dfs(const graph_list &g, int start_node)
+	void dfs(const graph &g, int start_node)
 	{
 		std::vector<bool> marked(g.number_of_nodes(), false);
 
 		dfs(g, start_node, marked);
 	}
 
-	void bfs(const aisp::graph_list &g, int start_node)
+	void bfs(const aisp::graph &g, int start_node)
 	{
 		std::queue<int> node_queue;
 		std::vector<bool> marked(g.number_of_nodes(), false);
@@ -79,13 +79,13 @@ namespace  aisp
 		}
 	}
 
-	graph_list load_graph_list()
+	graph load_graph_list()
 	{
 		int n;
 		std::cout << "Input number of nodes: ";
 		std::cin >> n;
 
-		graph_list g(n);
+		graph g(n);
 
 		int m;
 		int k;

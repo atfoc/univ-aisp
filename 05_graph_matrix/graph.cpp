@@ -1,38 +1,38 @@
 #include <iostream>
 #include <queue>
 #include "../util.hpp"
-#include "graph_matrix.hpp"
-#include "../06_graph_list/graph_list.hpp"
+#include "graph.hpp"
+#include "../06_graph_list/graph.hpp"
 
 namespace aisp
 {
 
-	graph_matrix::graph_matrix(int node_number)
+	graph::graph(int node_number)
 		:	edge_matrix_(node_number, std::vector<bool>(node_number, false))
 	{}
 
-	void graph_matrix::add_branch(int i, int j)
+	void graph::add_branch(int i, int j)
 	{
 		AISP_ASSERT(i >= 0 && i < number_of_nodes(), "Node is not in range");
 		AISP_ASSERT(j >= 0 && j < number_of_nodes(), "Node is not in range");
 		edge_matrix_[i][j] = true;
 	}
 
-	int graph_matrix::get_branch(int i, int j) const
+	int graph::get_branch(int i, int j) const
 	{
 		AISP_ASSERT(i >= 0 && i < number_of_nodes(), "Node is not in range");
 		AISP_ASSERT(j >= 0 && j < number_of_nodes(), "Node is not in range");
 		return edge_matrix_[i][j];
 	}
 
-	int graph_matrix::number_of_nodes() const
+	int graph::number_of_nodes() const
 	{
 		return edge_matrix_.size();
 	}
 
 
 
-	std::ostream &operator<<(std::ostream &os, const graph_matrix &g)
+	std::ostream &operator<<(std::ostream &os, const graph &g)
 	{
 		int n{g.number_of_nodes()};
 
@@ -51,7 +51,7 @@ namespace aisp
 		return os;
 	}
 
-	void dfs(const graph_matrix &g, int node, std::vector<bool> &marked)
+	void dfs(const graph &g, int node, std::vector<bool> &marked)
 	{
 		int n{g.number_of_nodes()};
 
@@ -69,7 +69,7 @@ namespace aisp
 		std::cout << "Odlazna numeracija: " << node << std::endl;
 	}
 
-	void dfs(const graph_matrix &g, int start_node)
+	void dfs(const graph &g, int start_node)
 	{
 		std::vector<bool> makred(g.number_of_nodes(), false);
 
@@ -77,7 +77,7 @@ namespace aisp
 	}
 
 
-	void bfs(const graph_matrix &g, int start_node)
+	void bfs(const graph &g, int start_node)
 	{
 		std::queue<int> node_queue;
 		int number_of_nodes = g.number_of_nodes();
@@ -105,13 +105,13 @@ namespace aisp
 		}
 	}
 
-	graph_matrix load_graph_matrix()
+	graph load_graph_matrix()
 	{
 		int n;
 		std::cout << "Input number of nodes: ";
 		std::cin >> n;
 
-		graph_matrix g(n);
+		graph g(n);
 
 		int m;
 		int k;
