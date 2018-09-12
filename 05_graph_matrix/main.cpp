@@ -1,6 +1,8 @@
 #include <iostream>
 #include "graph.hpp"
 
+using namespace with_matrix;
+
 int main()
 {
 

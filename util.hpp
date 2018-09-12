@@ -5,9 +5,9 @@
 #include <iostream>
 
 #define AISP_ASSERT2(expr, msg)\
-	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg))
+	::aisp::assert_impl(__FILE__, __LINE__, (expr), (msg))
 #define AISP_ASSERT3(expr, msg, exit_code)\
-	aisp::assert_impl(__FILE__, __LINE__, (expr), (msg), (exit_code))
+	::aisp::assert_impl(__FILE__, __LINE__, (expr), (msg), (exit_code))
 
 #define AISP_ASSERT_OVERIDE(_1, _2, _3,NAME, ...) NAME
 #define AISP_ASSERT(...)\
