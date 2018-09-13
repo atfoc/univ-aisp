@@ -4,9 +4,12 @@
 
 namespace aisp
 {
-	node::node(int val)
-		:	val{val}
-	{}
+	namespace list_detail
+	{
+		node::node(int val)
+				: val{val}
+		{}
+	}
 
 	list::list()
 		:	first_element_{nullptr},
@@ -15,7 +18,7 @@ namespace aisp
 
 	void list::push_back(int val)
 	{
-		node *node_to_add{new node(val)};
+		list_detail::node *node_to_add{new list_detail::node(val)};
 
 		if(!first_element_ &&  !last_element_)
 		{
@@ -37,7 +40,7 @@ namespace aisp
 
 	void list::push_front(int val)
 	{
-		node *node_to_add{new node(val)};
+		list_detail::node *node_to_add{new list_detail::node(val)};
 
 		if(!first_element_ &&  !last_element_)
 		{
@@ -68,7 +71,7 @@ namespace aisp
 			}
 			else
 			{
-				node *tmp{last_element_};
+				list_detail::node *tmp{last_element_};
 				
 				last_element_ = tmp->prev;
 				last_element_->next = nullptr;
@@ -99,7 +102,7 @@ namespace aisp
 			}
 			else
 			{
-				node *tmp{first_element_};
+				list_detail::node *tmp{first_element_};
 					
 				first_element_ = tmp->next;
 				first_element_->prev= nullptr;
@@ -122,7 +125,7 @@ namespace aisp
 
 	void list::clear()
 	{
-		node *tmp;
+		list_detail::node *tmp;
 
 		while(first_element_)
 		{
@@ -167,12 +170,12 @@ namespace aisp
 		return !first_element_ && !last_element_? true : false;
 	}
 
-	node* list::begin() const
+	list_detail::node* list::begin() const
 	{
 		return first_element_;
 	}
 
-	node* list::end() const
+	list_detail::node* list::end() const
 	{
 		return last_element_;
 	}
@@ -185,7 +188,7 @@ namespace aisp
 
 	std::ostream& operator<<(std::ostream &out, const list &l)
 	{
-		for(node *curr = l.begin(); curr; curr = curr->next)
+		for(list_detail::node *curr = l.begin(); curr; curr = curr->next)
 		{
 			out << curr->val << (curr->next ? "->" : "");
 		}

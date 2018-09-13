@@ -7,14 +7,17 @@
 
 namespace aisp
 {
-	struct node
+	namespace list_detail
 	{
-		explicit node(int val);
+		struct node
+		{
+			explicit node(int val);
 
-		node *next;
-		node *prev;
-		int val;
-	};
+			node *next;
+			node *prev;
+			int val;
+		};
+	}//namespace list_detail
 
 
 	class list
@@ -31,15 +34,14 @@ namespace aisp
 			bool empty() const;
 			/* Iterators are not in scope of the course so
 			 * we will use this for iterating over the list*/
-			node* begin() const;
-			node* end() const;
+			list_detail::node* begin() const;
+			list_detail::node* end() const;
 
 			~list();
 
-
 		private:
-			node *first_element_;
-			node *last_element_;
+			list_detail::node *first_element_;
+			list_detail::node *last_element_;
 	};
 
 
